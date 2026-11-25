@@ -7,7 +7,8 @@
 #   b) Theo nhân viên, m = 75: DE 2,48; 3.103 yêu cầu/nhóm; 42 nhân viên/nhóm, không đủ 40 người.
 #   c) 20 nhân viên mỗi nhóm: tối đa 1.000 yêu cầu hiệu dụng/nhóm, không đạt mức +5 điểm.
 #   d) 6 depot mỗi nhóm: tối đa 300 yêu cầu hiệu dụng/nhóm.
-#   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm: ít nhất 299 yêu cầu/người, DE 6,96.
+#   e) Mức chênh 6 điểm: cần 859 yêu cầu hiệu dụng/nhóm; 20 nhân viên/nhóm,
+#      ít nhất 299 yêu cầu/người = 5.980 yêu cầu thực tế/nhóm, DE 6,96.
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
 #   1. Đối chứng chạy cùng thời gian: Có, 20 nhân viên đối chứng chạy cùng tuần và cùng depot.
@@ -17,26 +18,34 @@
 #   5. Ít nhất 20 cụm mỗi nhóm: Có, đúng 20 nhân viên mỗi nhóm.
 #
 # Đánh đổi đã chấp nhận: chọn 20 nhân viên mỗi nhóm để tách tác động; chấp nhận chỉ phát hiện mức +6 điểm
-# (859/nhóm), không đủ power cho +5 điểm (power khoảng 0,64 khi tác động thật chỉ +5 điểm).
+# (859 hiệu dụng/nhóm), không đủ power cho +5 điểm (power khoảng 0,64 khi tác động thật chỉ +5 điểm).
 #
 # Tỉ lệ mo_lai_trong_7_ngay hiện tại: 4,25% (51/1.200); phạm vi pilot: 3,97% (39/982).
 # Ngưỡng an toàn: không vượt trần tuyệt đối 6% và không cao hơn đối chứng từ 2 điểm phần trăm.
+# Khả thi sơ bộ: 1.500 yêu cầu/ngày × 982/1.200 ≈ 1.228 yêu cầu trong phạm vi/ngày.
+# Nếu chia đều và mọi yêu cầu đủ điều kiện, 11.960 yêu cầu cần ít nhất 9,7 ngày ở mức đầy đủ;
+# rollout, phân bổ không đều và theo dõi thêm 7 ngày làm thời gian thực tế dài hơn.
+# Đây là ước tính giả định, chưa chứng minh đủ 299 yêu cầu cho từng nhân viên.
 
 pilot:
   owner: "Giám đốc vận hành LogiX-VN"                      # một người có tên vai trò, không ghi "cả đội"
-  scope: "Chỉ noi_dia và hang_nang (0,22x và 0,69x so với 12.000 đ, simulated); loại quoc_te (1,88x) và doi_tac (0,85x)"
+  scope: "Chỉ noi_dia và hang_nang (0,22x và 0,69x so với 12.000 đ, simulated); loại quoc_te (1,88x, simulated) vì chi phí cao và thành công 27,3%; tạm loại doi_tac (0,85x, simulated) vì điều khoản riêng và chỉ 68 yêu cầu trong mẫu, cần xác minh trước khi mở rộng"
   assignment:
     unit: "staff"                     # request | staff | depot
     control_share: 0.5
     randomized: true
-  rollout: [0.10, 0.25, 0.50]     # mỗi bước một tuần
+  rollout: [0.10, 0.25, 0.50]     # tỉ lệ trong 40 nhân viên: 4, 10, 20 người dùng trợ lý
+  rollout_schedule: "Dự kiến tuần 1 thử 10% rồi 25% sau khi kiểm tra an toàn; từ tuần 2 lên 50% nếu đạt. Chia ngẫu nhiên cố định 20 nhân viên mỗi nhóm; chỉ thu mẫu phân tích chính khi đủ 20 nhân viên nhóm trợ lý được bật. Theo dõi đến khi đủ mẫu, sau đó chờ đủ 7 ngày cho yêu cầu cuối."
+  feasibility: "Ước tính 1.228 yêu cầu trong phạm vi/ngày trên toàn hệ thống; cần ít nhất 9,7 ngày ở mức đầy đủ để đạt tổng 11.960 yêu cầu, nếu chia đều và tất cả đủ điều kiện. PM xác minh lưu lượng, phân bổ theo nhân viên và thời gian trước khi bắt đầu; nếu không đủ, không tuyên bố đạt power và phải sửa kế hoạch."
   primary_metric:
     name: dong_trong_24h_khong_mo_lai_7_ngay
     baseline: 0.70
     mde: 0.06
     alpha: 0.05
     power: 0.80
-    n_per_arm: 859
+    n_per_arm: 5980              # yêu cầu thực tế tối thiểu mỗi nhóm
+    effective_n_per_arm: 859     # yêu cầu hiệu dụng mục tiêu sau hiệu chỉnh cụm
+    min_requests_per_staff: 299
     design_effect: 6.96            # 1 nếu chia theo yêu cầu
     clusters_per_arm: 20           # để trống nếu chia theo yêu cầu
   identifiability:
@@ -44,10 +53,11 @@ pilot:
     spillover_risk: "Có; giới hạn quyền truy cập theo tài khoản và log lượt mở trợ lý theo staff_id"
     predeclared: "Có; chỉ số chính, ngưỡng, luật dừng và ngày quyết định chốt trước khi chạy"
   stop_rules:
-    - "NẾU tỷ lệ mở lại 7 ngày của nhóm trợ lý cao hơn đối chứng >= 2 điểm phần trăm hoặc vượt 6% TRONG 3 ngày liên tiếp THÌ Giám đốc vận hành tắt trợ lý trong 30 phút KHÔNG THÌ không được sang bước rollout tiếp"
-    - "NẾU chi phí mỗi việc thành công > 8.000 đ TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí thu hẹp về noi_dia và giới hạn 2 lần chạy KHÔNG THÌ không được mở hang_nang"
-    - "NẾU tỷ lệ bỏ qua gợi ý > 40% TRONG 1 tuần THÌ Trưởng nhóm CSKH phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ không được chuyển bước rollout"
+    - "NẾU tỷ lệ mở lại 7 ngày của nhóm trợ lý cao hơn đối chứng >= 2 điểm phần trăm hoặc vượt 6% TRONG 3 ngày đánh giá liên tiếp THÌ Giám đốc vận hành tắt trợ lý trong 30 phút KHÔNG THÌ tiếp tục theo kế hoạch nếu các điều kiện an toàn khác đạt"
+    - "NẾU chi phí mỗi việc thành công > 8.000 đ TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí thu hẹp về noi_dia và giới hạn 2 lần chạy KHÔNG THÌ tiếp tục trong phạm vi đã duyệt"
+    - "NẾU tỷ lệ bỏ qua gợi ý > 40% TRONG 1 tuần THÌ Trưởng nhóm CSKH phỏng vấn 5 nhân viên trong 3 ngày và tạm giữ bước rollout KHÔNG THÌ tiếp tục theo kế hoạch nếu các điều kiện an toàn khác đạt"
+  safety_measurement: "Tính tỷ lệ mở lại trên các yêu cầu đã đủ 7 ngày theo dõi, theo cùng cửa sổ cho cả hai nhóm; đánh giá hằng ngày. Trong 7 ngày đầu theo dõi riêng sự cố sổ cái và hoàn trùng, không coi dữ liệu chưa đủ 7 ngày là không mở lại."
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Giám đốc vận hành bấm cờ tắt, hiệu lực trong 30 phút; khách được phục vụ bằng luồng nhân viên tự làm"
-  decision_date: "2027-01-05"
-  simulated_inputs: ["giá token 26/130 đ mỗi 1.000 token", "tool 15 đ/lần", "lương 2.000 đ/phút", "baseline 12.000 đ", "chi phí cố định 40.000.000 đ/tháng", "baseline 0,70", "MDE 0,06", "alpha 0,05", "power 0,80", "ICC 0,02", "rollout 0,10/0,25/0,50", "ngưỡng an toàn 6%", "859 yêu cầu/nhóm", "DE 6,96"]
+  decision_date: "2027-01-05: ngày kiểm tra dự kiến; chỉ quyết định tác động khi đủ mẫu và đủ 7 ngày theo dõi, nếu không thì gia hạn hoặc kết luận chưa đủ bằng chứng"
+  simulated_inputs: ["giá token 26/130 đ mỗi 1.000 token", "tool 15 đ/lần", "lương 2.000 đ/phút", "baseline 12.000 đ", "chi phí cố định 40.000.000 đ/tháng", "baseline 0,70", "MDE 0,06", "alpha 0,05", "power 0,80", "ICC 0,02", "rollout 0,10/0,25/0,50", "ngưỡng an toàn 6%", "859 yêu cầu hiệu dụng/nhóm", "DE 6,96"]

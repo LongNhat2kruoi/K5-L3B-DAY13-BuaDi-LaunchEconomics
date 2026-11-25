@@ -25,10 +25,11 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 | refund_ledger_write | Dịch vụ sổ cái | `idempotency_key`, `so_tien`, `ket_qua`, `trace_id` | Khi ghi sổ cái |
 | ticket_closed | Hệ thống ticket | `closed_at`, `trace_id` | Khi đóng yêu cầu |
 | ticket_reopened | Khách | `reopened_at`, `reason`, `trace_id` | Khi yêu cầu mở lại |
+| audit_sample_checked | Nhân viên kiểm toán | `so_tien_dung`, `so_tien_da_hoan`, `checked_at`, `trace_id` | Khi hoàn tất kiểm tra mẫu |
 
 **Kiểm tra chéo:** với mỗi chỉ số ở bảng E1, ghi event dùng để tính. Chỉ số nào không tính được từ danh sách event thì chưa đo được.
 
-- Chỉ số chính dùng `ticket_closed` kết hợp `ticket_reopened` và `refund_request_created`; chỉ số dùng dùng `agent_suggestion_shown` + `staff_review_decision`; chỉ số an toàn dùng `ticket_reopened`. Mọi event phải có `trace_id` để nối về `agent_run_completed`.
+- Chỉ số chính dùng `ticket_closed` kết hợp `ticket_reopened` và `refund_request_created`; tỷ lệ bỏ qua dùng `staff_review_decision` trên số yêu cầu được xem lại; tỷ lệ được xem lại dùng `staff_review_decision` và `refund_request_created`; tỷ lệ mở lại dùng `ticket_reopened` và `refund_request_created`; kiểm toán dùng `audit_sample_checked`. Tính mở lại và chỉ số chính trên yêu cầu đã đủ 7 ngày theo dõi. Mọi event có `trace_id` để nối với yêu cầu; nhóm đối chứng cũng cần ID liên kết dù không có lượt chạy agent.
 
 ## E2 · Rủi ro kinh tế
 
