@@ -9,7 +9,7 @@
 
 ## 2. Phần việc phụ trách
 
-- Đọc kỹ đề bài và theo dõi các điều kiện "Xong khi" ở từng checkpoint (đảm bảo nhóm ghi nhãn `simulated`, không dùng từ "production", câu trả lời ngắn gọn có số).
+- Đọc kỹ đề bài và theo dõi các điều kiện "Xong khi" ở từng checkpoint (đảm bảo nhóm ghi nhãn `simulated`, không dùng thuật ngữ bị cấm trong hồ sơ, câu trả lời ngắn gọn có số).
 - Gắn nhãn độc lập 20 ca lỗi ở CP3 theo 5 loại của Google PAIR, sau đó đối chiếu với Người gắn nhãn 2, tính tỉ lệ đồng thuận và hoàn thiện bảng khắc phục 5 ca.
 - Tham gia rà soát hồ sơ trước 17:00 và chấm chéo nhóm bạn ở phần duyệt chéo Gate 2a.
 
