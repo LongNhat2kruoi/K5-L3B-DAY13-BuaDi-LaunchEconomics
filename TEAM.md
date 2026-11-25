@@ -2,19 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
-- Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: BuaDi
+- Lớp: L3B
+- Repo nhóm: `K5-L3B-DAY13-BuaDi-LaunchEconomics`
+- URL repo, nhánh nộp, commit chốt: `https://github.com/LongNhat2kruoi/K5-L3B-DAY13-BuaDi-LaunchEconomics`, `lesylongnhat`, cập nhật sau commit cuối
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Vương Trường Giang | 2A202603834 | 26ai.giangvt@vinuni.edu.vn       |   vtgiang213      | Người kiểm số |
-|   2 |        |      |       |        |         |
-|   3 |        |      |       |        |         |
-|   4 |        |      |       |        |         |
+|   2 | Hoàng Quang Đạt | 2A202603808 | hoangquangdat182005@gmail.com | HoangQuangDat | Người gắn nhãn 1 |
+|   3 | Lê Sỹ Long Nhật | Chưa cung cấp | lenhat07112005@gmail.com | LongNhat2kruoi | Người gắn nhãn 2, kiêm giữ hồ sơ |
+|   4 | Chưa cung cấp | Chưa cung cấp | Chưa cung cấp | Chưa cung cấp | Người viết code |
 
 Bốn vai của lab:
 
@@ -50,3 +50,31 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 - `report/team/bang_chi_phi.md`; commit CP1 `5b4c000`; phép tính A1 với p = 0,8 và tối đa 2 lần cho kết quả 1,20 lần chạy trung bình.
+
+## HoangQuangDat-2A202603808
+
+### Phần việc phụ trách
+
+- Người gắn nhãn 1; theo dõi điều kiện hoàn thành CP3.
+
+### Đóng góp cụ thể
+
+- Gắn nhãn độc lập 20 ca lỗi theo nguyên nhân gốc; đối chiếu năm loại lỗi và hỗ trợ chọn ca khắc phục.
+
+### Bằng chứng
+
+- `report/team/bang_loi.md`; báo cáo cá nhân `report/team/2A202603808_HoangQuangDat.md`.
+
+## LeSyLongNhat
+
+### Phần việc phụ trách
+
+- Người gắn nhãn 2, kiêm giữ hồ sơ launch v0.
+
+### Đóng góp cụ thể
+
+- Gắn nhãn độc lập 20 ca lỗi; điền `ho_so_launch_v0.md`, cập nhật các mục chỉ số, pilot và rủi ro theo số liệu đã chạy.
+
+### Bằng chứng
+
+- `report/team/bang_loi.md`, `report/team/ho_so_launch_v0.md`, branch `lesylongnhat`.

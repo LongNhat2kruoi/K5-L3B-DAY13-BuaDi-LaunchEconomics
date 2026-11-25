@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: ... · Người gắn nhãn 2: ... (gắn trong 8 phút, không trao đổi)
+Người gắn nhãn 1: Hoàng Quang Đạt · Người gắn nhãn 2: Lê Sỹ Long Nhật (gắn trong 8 phút, không trao đổi)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Người gắn nhãn 1: ... · Người gắn nhãn 2: ... (gắn trong 8 phút,
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- ...
+- Không có ca không trùng; cả 20 ca dùng cùng một nhãn thống nhất.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
