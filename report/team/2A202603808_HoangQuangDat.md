@@ -15,14 +15,15 @@
 
 ## 3. Đóng góp cụ thể
 
-- Đọc và tổng hợp yêu cầu của 5 nhiệm vụ (A–E) từ tài liệu lab để làm đầu mối kiểm tra điều kiện hoàn thành cho nhóm.
+- Đọc và tổng hợp yêu cầu của 5 nhiệm vụ (A–E) từ tài liệu lab để theo dõi điều kiện "Xong khi" cho nhóm.
 - Hoàn thành gắn nhãn độc lập toàn bộ 20 ca lỗi trong `report/team/bang_loi.md` dựa trên nguyên nhân gốc (4 ca Do người dùng, 5 ca Hệ thống, 4 ca Ngữ cảnh, 4 ca Giới hạn hệ thống, 3 ca Ngầm).
-- *(Đang chờ Người gắn nhãn 2 để so nhãn, tính đồng thuận và điền bảng khắc phục 5 ca; sẽ cập nhật thêm phần duyệt chéo Gate 2a cuối buổi).*
+- So nhãn với Người gắn nhãn 2 đạt tỉ lệ đồng thuận 20/20 (100%) và hoàn thiện bảng khắc phục 5 ca (9, 7, 18, 4, 17) với ngưỡng phát hiện đo được và vai trò phụ trách cụ thể.
+- *(Sẽ cập nhật thêm phần duyệt chéo Gate 2a vào cuối buổi).*
 
 ## 4. Bằng chứng
 
-- File `report/team/bang_loi.md`: cột `Nhãn người 1` (đã điền đủ 20 ca).
-- *(Sẽ bổ sung link/mã commit sau khi nhóm chốt bài lúc 17:45).*
+- File `report/team/bang_loi.md` (cột `Nhãn người 1`, đồng thuận 20/20 và bảng khắc phục 5 ca).
+- Commit `08b6532` (nhánh `hoangquangdat`) và commit merge `d5d1dfb` trên `main`.
 
 ## 5. Công cụ AI đã dùng
 
