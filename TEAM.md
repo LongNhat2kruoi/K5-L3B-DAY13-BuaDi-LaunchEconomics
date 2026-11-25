@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Vương Trường Giang | 2A202603834 | 26ai.giangvt@vinuni.edu.vn       |   vtgiang213      | Người kiểm số |
 |   2 | Hoàng Quang Đạt | 2A202603808 | hoangquangdat182005@gmail.com | HoangQuangDat | Người gắn nhãn 1 |
-|   3 | Lê Sỹ Long Nhật | Chưa cung cấp | lenhat07112005@gmail.com | LongNhat2kruoi | Người gắn nhãn 2, kiêm giữ hồ sơ |
+|   3 | Lê Sỹ Long Nhật | 2A202603881 | lenhat07112005@gmail.com | LongNhat2kruoi | Người gắn nhãn 2, kiêm giữ hồ sơ |
 |   4 | Vương Quang Thắng | 2A202603855 | 26ai.thangvq@vinuni.edu.vn | vuongquangthang | Người viết code |
 
 Bốn vai của lab:
