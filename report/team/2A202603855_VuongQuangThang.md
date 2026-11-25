@@ -13,7 +13,7 @@
 
 ## 4. Bằng chứng
 
-- **File mã nguồn:** `src/lab13.py` (commit: `[Điền mã commit sau khi git push]`).
+- **File mã nguồn:** `src/lab13.py` (commit: `ac78f50`).
 - **Kết quả chạy thực tế từ terminal (`cd src && python lab13.py`):**
 
 ```text
