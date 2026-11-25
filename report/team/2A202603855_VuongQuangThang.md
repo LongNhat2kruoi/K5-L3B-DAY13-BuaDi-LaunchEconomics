@@ -1,3 +1,12 @@
+## VƯƠNG QUANG THẮNG - 2A202603855
+
+## 1. Thông tin thành viên
+
+- Họ tên: Vương Quang Thắng
+- MSSV: 2A202603855
+- Email: 26ai.thangvq@vinuni.edu.vn
+- Vai trong nhóm (người viết code, người kiểm số, người gắn nhãn 1, người gắn nhãn 2 kiêm giữ hồ sơ): người viết code
+
 ## 2. Phần việc phụ trách
 
 - Thiết lập môi trường Python (`.venv`) và hoàn thiện toàn bộ mã nguồn tính toán trong `src/lab13.py` cho các nhiệm vụ A (CP1), B (CP2), D1 (CP4) và tính thử chỉ số E1 (CP5)[cite: 1, 2].
