@@ -22,7 +22,7 @@ Nhiệm vụ A–B dùng mô hình cộng chi phí token, tool, xem lại và l�
 
 Con số chính (ghi nhãn `simulated` khi cần) và đề xuất cuối của `ho_so_launch_v0.md`. Kết quả duyệt chéo nhóm nhận được từ hội đồng.
 
-Chi phí A2 là 4.472 đ/việc thành công (4.373.585 đ/978 việc, simulated); chi phí cả hệ thống là 5.865 đ/yêu cầu, bằng 0,49× nhân viên tự làm (simulated). `quoc_te` là 22.515 đ/việc, 1,88× baseline và chỉ thành công 27,3%; B3 cho thấy giới hạn 2 lần có chi phí cả hệ thống thấp nhất: 6.901.220 đ (simulated). Chỉ số thử là 82,83% chính, 27,12% dùng và 4,25% an toàn. Đề xuất cuối: Go có điều kiện.
+Chi phí A2 là 4.472 đ/việc thành công (4.373.585 đ/978 việc, simulated); chi phí cả hệ thống là 5.865 đ/yêu cầu, bằng 0,49× nhân viên tự làm (simulated). `quoc_te` là 22.515 đ/việc, 1,88× baseline và chỉ thành công 27,3%; B3 cho thấy giới hạn 2 lần có chi phí cả hệ thống thấp nhất: 6.901.220 đ (simulated). Chỉ số thử là 82,83% chính, 27,12% dùng và 4,25% an toàn. Đề xuất cuối: Go có điều kiện. Duyệt chéo Gate 2a chưa thực hiện theo phạm vi công việc hiện tại.
 
 ## 5. Khó khăn và cách xử lý
 
